@@ -1,0 +1,32 @@
+@FunctionalInterface
+public interface Consumer<T> {
+    void accept(T t);
+    default Consumer<T> andThen(Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> { accept(t); after.accept(t); };
+    }
+}
+
+
+Consumer<Integer> firstConsumer = i-> System.out.print(" "+i);
+Consumer<Integer> afterConsumer = i-> System.out.print("(printed "+i+")");
+
+Consumer<Integer> consumerWithAndThen = firstConsumer.andThen(afterConsumer);
+
+default Consumer<T> andThen(Consumer<? super T> after) {
+    Objects.requireNonNull(after);
+
+    // Using lambda
+    return (T t) -> { accept(t); after.accept(t); };
+
+
+    // Using annonymous class.
+    Consumer<T> consumerWithAndThen = new Consumer<T>(){
+    	@Override
+    	public void accept(T t) {
+    		this.accept(t);		// this refers to firstConsumer
+    		after.accept(t);	// after refers to afterConsumer
+    	}
+    };
+    return consumerWithAndThen;
+}

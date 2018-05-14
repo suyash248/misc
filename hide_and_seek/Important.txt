@@ -1,0 +1,2 @@
+It needs administrator privileges so-
+Run the command prompt as admin then compile and run it.

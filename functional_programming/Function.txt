@@ -1,0 +1,59 @@
+default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {
+    return (T t) -> after.apply(apply(t));
+}
+
+
+
+
+default <V> Function<T, V> andThen(Function<? super R, ? extends V> after) {	// T - Employee | V - String | R - String
+	
+	// Using annonymous class.
+	Function<T, V> retFun = new Function<T, V> (){
+		@Override
+		public V apply(T t) {
+			after.apply(apply(t));
+		}
+	}
+
+	// Using lambda.
+    return (T t) -> after.apply(apply(t));
+}
+
+
+
+
+default <String> Function<Employee, String> andThen(Function<String, String> after) {
+
+	// Using annonymous class.
+	Function<Employee, String> refFun = new Function<Employee, String>(){
+		@Override
+		public String apply(Employee emp) {
+			after.apply(apply(emp));
+		}
+	}
+	return refFun;
+
+	// Using lambda.
+    return (Employee emp) -> after.apply(apply(emp));	// after = fun2 | this = fun1
+}
+
+
+
+
+
+class FunctionImpl1 implements Function<Employee, String> {
+	public String apply(Employee emp) {
+		return emp.getName();
+	}
+}
+
+class FunctionImpl2 implements Function<String, String> {
+	public String apply(String empName) {
+		return empName.substring(0, 1);
+	}
+}
+
+FunctionImpl1 fun1 = new FunctionImpl1();
+FunctionImpl2 fun2 = new FunctionImpl2();
+
+fun1.andThen(fun2);

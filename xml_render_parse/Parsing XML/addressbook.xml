@@ -1,0 +1,53 @@
+<?xml version = "1.0" ?>
+ <?xml-stylesheet type = "text/css" href = "Addressc.css" ?>
+ <!DOCTYPE addressbook SYSTEM "Addressd.dtd" > 
+
+<addressbook>
+  <contact>
+	<Name> A Mukerjee </Name>
+	<address>SDF Bldgs 219-222</address>
+	<city>salt lake</city>
+	<state>WB</state>
+	<zip>700091</zip>
+	<phone>
+	  <voice>033-3692287</voice>
+	  <fax>033-3628638</fax>
+	</phone>
+	<email>drall@indiatimes.com</email>
+	<web>http://www.indiatimes.com</web>
+	<company>TCS</company>
+   </contact>
+
+  <contact>
+	<name> Mukerjee </name>
+	<address>SDF 219-222</address>
+	<city> lake</city>
+	<state>MP</state>
+	<zip>700001</zip>
+	<phone>
+	  <voice>023-3692287</voice>
+          <fax>043-3628638</fax>
+	</phone>
+	<email>drallpk@indiatimes.com</email>
+	<web>http://www.indiatimes.com</web>
+	<company>Indiatimes</company>
+   </contact>
+
+<contact>
+<Name> Manish </Name>
+<address>Rohini</address>
+<city>salt lake</city>
+<state>Delhi</state>
+<zip>110091</zip>
+<phone>
+<voice>011-2312122</voice>
+</phone>
+<email>manish@indiatimes.com</email>
+<web>http://www.indiatimes.com</web>
+<company>Ducat</company>
+</contact>
+
+
+
+</addressbook>
+
